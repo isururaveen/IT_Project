@@ -1,0 +1,83 @@
+<div class="my-2">
+  <h3><b>{{ delivery }}</b></h3>
+</div>
+<div class="container my-5">
+  <h4 class="card-title font-weight-bold">{{assignOrders}}</h4>
+  <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th class="bg-primary text-light" scope="col">ORDER ID</th>
+          <th class="bg-primary text-light" scope="col">DRIVER ID</th>
+          <th class="bg-primary text-light" scope="col">ASSIGNED DATE</th>
+          <th class="bg-primary text-light" scope="col">STATUS</th>
+          <th class="bg-primary text-light" scope="col">ACTION</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let assignorder of assignorder$ | async">
+        <tr>
+          <td>{{ assignorder.order_id}}</td>
+          <td>{{ assignorder.driver_id }}</td>
+          <td>{{ assignorder.assigned_date }}</td>
+          <td>{{ assignorder.delivery_status }}</td>
+          <td>
+              <span>
+                <button class="btn btn-success btn-sm mr-2 mt-1 align-content-center" 
+                routerLink="/UpdateAssignOrders/{{assignorder.order_id}}">
+                <i class="fa fa-edit text-grey" aria-hidden="true"></i> Edit</button>
+            </span>
+            <span>
+                <button class="btn btn-danger btn-sm mr-2 mt-1 align-content-center" 
+                (click)="deleteAssigned(assignorder.order_id)">
+                <i class="fa fa-trash text-grey" aria-hidden="true">
+                </i> Delete</button>
+            </span>
+        </tr>
+      </tbody>
+  </table>
+  <br>
+  <hr>
+  <br>
+  <h4 class="card-title font-weight-bold">{{completeOrders}}</h4>
+  <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th class="bg-primary text-light" scope="col">ORDER ID</th>
+          <th class="bg-primary text-light" scope="col">DRIVER ID</th>
+          <th class="bg-primary text-light" scope="col">COMPLETED DATE</th>
+          <th class="bg-primary text-light" scope="col">STATUS</th>
+          <th class="bg-primary text-light" scope="col">VIEW REPORT</th>
+          <th class="bg-primary text-light" scope="col">VIEW INVOICE</th>
+          <th class="bg-primary text-light" scope="col">ACTION</th>
+        </tr>
+      </thead>
+      <tbody  *ngFor="let completeorder of completeorder$ | async">
+        <tr>
+          <td>{{ completeorder.order_id }}</td>
+          <td>{{ completeorder.driver_id }}</td>
+          <td>{{ completeorder.assigned_date }}</td>
+          <td>{{ completeorder.delivery_status }}</td>
+          <td>
+            <span>
+                <button class="btn btn-primary btn-sm mr-2 mt-1 align-content-center" 
+                routerLink="/CompletedOrder/{{completeorder.order_id}}">
+                <i class="fa fa-eye text-grey" aria-hidden="true"></i> View</button>
+            </span>
+          </td>
+          <td>
+            <span>
+                <button class="btn btn-primary btn-sm mr-2 mt-1 align-content-center"
+                routerLink="/ViewInvoice/{{completeorder.order_id}}">
+                <i class="fa fa-print text-grey" aria-hidden="true"></i> Print</button>
+            </span>
+          </td>
+          <td>
+            <span>
+                <button class="btn btn-danger btn-sm mr-2 mt-1 align-content-center"
+                (click)="deleteCompleted(completeorder.order_id)">
+                <i class="fa fa-trash text-grey" aria-hidden="true"></i> Delete</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
