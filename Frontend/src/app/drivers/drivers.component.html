@@ -1,0 +1,26 @@
+
+<br>
+<h3><b>{{ driver}}</b></h3>
+<hr>
+
+<div class="container my-5">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th class="bg-primary text-light" scope="col">DRIVER ID</th>
+      <th class="bg-primary text-light" scope="col">NIC</th>
+      <th class="bg-primary text-light" scope="col">NAME</th>
+      <th class="bg-primary text-light" scope="col">ADDRSS</th>
+      <th class="bg-primary text-light" scope="col">CONTACT NUMBER</th>
+    </thead>
+    <tbody *ngFor= "let driver of driver$ | async">
+    <tr>
+      <td>{{ driver.employee_id }}</td>
+      <td>{{ driver.employee_nic }}</td>
+      <td>{{ driver.full_name }}</td>
+      <td>{{ driver.address }}</td>
+      <td>{{ driver.phone_num }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
