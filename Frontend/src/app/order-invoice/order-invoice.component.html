@@ -1,0 +1,83 @@
+<div id="component">
+<div class="my-2">
+  <h3><b>{{ invoice }}</b></h3>
+</div>
+<div class="my-3">
+  <div class="card">
+    <div class="card-body">
+
+      <div class="row">
+
+        <div class="col">
+          <div style="font-size: 5rem;">
+            <i class="fa fa-user"></i>
+          </div>
+        </div>
+
+        <div class="col">
+        <table>
+            <tr>
+              <th>Name</th>
+              <td>{{customer_name}}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{email}}</td>
+            </tr>
+            <tr>
+              <th>Contact No</th>
+              <td>{{phone_num}}</td>
+            </tr>
+        </table>
+        </div>
+
+        <div class="col">
+        <table>
+              <tr>
+                <th>Address</th>
+                <td>{{address}}</td>
+              </tr>
+        </table>
+        </div>
+
+        <div class="col">
+          <table>
+              <tr>
+                <th>Date</th>
+                <td>{{assigned_date}}</td>
+              </tr>
+              <tr>
+                <th>Status</th>
+                <td>{{delivery_status}}</td>
+              </tr>
+          </table>
+        </div>
+
+      <table class="table table-bordered">
+        <thead class="text-white bg-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">PRODUCT NAME</th>
+          <th scope="col">QUANTITY</th>
+          <th scope="col">TOTAL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">#</th>
+          <th>{{item_number}}</th>
+          <th>{{qty}}</th>
+          <th>{{total}}</th>
+        </tr>
+        <tr class="table-secondary">
+          <th colspan="3">Grand Total</th>
+          <th>{{total}}</th>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+<button type="button" (click)= "printComponent('component')" class="btn btn-primary"><b>PRINT</b></button>
